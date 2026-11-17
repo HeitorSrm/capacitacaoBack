@@ -4,7 +4,7 @@ API de controle de estoque desenvolvida na Capacitação de Backend da EJ (Byron
 
 > Projeto em andamento. Até agora estão prontos o cadastro, o login e a gestão de usuários. Categorias, produtos e fornecedores vêm nas próximas etapas.
 
-## Tecnologias
+## Tecnologias:
 
 - Node.js + Express
 - TypeScript
