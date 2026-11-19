@@ -6,6 +6,7 @@ import { isAuthenticated } from "./middlewares/isAuthenticated";
 import { RemoveUserController } from "./controllers/user/RemoveUserController";
 import { CreateCategoryController } from "./controllers/category/CreateCategoryController";
 import { EditCategoryController } from "./controllers/category/EditCategoryController";
+import { ListCategoryController } from "./controllers/category/ListCategoryController";
 
 const router = Router();
 
@@ -21,5 +22,6 @@ router.delete('/user/remove', isAuthenticated, new RemoveUserController().handle
 // Rotas de categoria
 router.post('/category', isAuthenticated, new CreateCategoryController().handle);
 router.patch('/category/edit', isAuthenticated, new EditCategoryController().handle);
+router.get('/category/all', isAuthenticated, new ListCategoryController().handle);
 
 export { router };
