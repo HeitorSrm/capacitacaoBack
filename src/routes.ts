@@ -15,6 +15,11 @@ import { EditProductController } from "./controllers/product/EditProductControll
 import { ListProductByCategoryController } from "./controllers/product/ListProductByCategoryController";
 import { ListProductController } from "./controllers/product/ListProductController";
 import { RemoveProductController } from "./controllers/product/RemoveProductController";
+import { CreateSupplierController } from "./controllers/supplier/CreateSupplierController";
+import { ListSupplierController } from "./controllers/supplier/ListSupplierController";
+import { DetailSupplierController } from "./controllers/supplier/DetailSupplierController";
+import { EditSupplierController } from "./controllers/supplier/EditSupplierController";
+import { RemoveSupplierController } from "./controllers/supplier/RemoveSupplierController";
 
 
 const router = Router();
@@ -40,5 +45,12 @@ router.patch('/products/:id', isAuthenticated, upload.single("file"), new EditPr
 router.get('/products/category', isAuthenticated, new ListProductByCategoryController().handle);
 router.get("/products", isAuthenticated, new ListProductController().handle);
 router.delete('/products/:id', isAuthenticated, new RemoveProductController().handle);
+
+// Rotas de fornecedor
+router.post('/suppliers', isAuthenticated, new CreateSupplierController().handle);
+router.get('/suppliers', isAuthenticated, new ListSupplierController().handle);
+router.get('/suppliers/:id', isAuthenticated, new DetailSupplierController().handle);
+router.patch('/suppliers/:id', isAuthenticated, new EditSupplierController().handle);
+router.delete('/suppliers/:id', isAuthenticated, new RemoveSupplierController().handle);
     
 export { router };
