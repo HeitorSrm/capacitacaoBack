@@ -3,7 +3,9 @@ import { CreateProductService } from "../../services/product/CreateProductServic
 
 class CreateProductController {
     async handle(request: Request, response: Response) {
-        const { name, price, description, category_id, supplier_id, amount } = request.body;
+        const { name, price, description, category_id, amount } = request.body;
+        // aceita supplierId (enunciado da Tarefa 04) ou supplier_id
+        const supplier_id = request.body.supplierId ?? request.body.supplier_id;
         const user_id = request.user_id;
 
         if (!request.file) {
