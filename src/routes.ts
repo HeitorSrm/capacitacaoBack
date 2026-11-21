@@ -1,6 +1,6 @@
-import { Router, Request, Response } from "express";
 import multer from "multer";
 import uploadConfig from "./config/multer";
+import { Router, Request, Response } from "express";
 import { CreateUserController } from "./controllers/user/CreateUserController";
 import { AuthUserController } from "./controllers/user/AuthUserController";
 import { DetailUserController } from "./controllers/user/DetailUserController";
@@ -10,6 +10,7 @@ import { CreateCategoryController } from "./controllers/category/CreateCategoryC
 import { EditCategoryController } from "./controllers/category/EditCategoryController";
 import { ListCategoryController } from "./controllers/category/ListCategoryController";
 import { RemoveCategoryController } from "./controllers/category/RemoveCategoryController";
+import { CreateProductController } from "./controllers/product/CreateProductController";
 
 
 const router = Router();
@@ -29,5 +30,7 @@ router.post('/category', isAuthenticated, new CreateCategoryController().handle)
 router.patch('/category/edit', isAuthenticated, new EditCategoryController().handle);
 router.get('/category/all', isAuthenticated, new ListCategoryController().handle);
 router.delete('/category/remove', isAuthenticated, new RemoveCategoryController().handle);
+// Rotas de produto
+router.post('/products', isAuthenticated, upload.single("file"), new CreateProductController().handle);
 
 export { router };
